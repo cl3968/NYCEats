@@ -59,27 +59,27 @@ An Example Resturant with Embedded Items:
 
 /user - page for user, includes their id, password, and reviews sorted by date
 
-![user](userinfo.png)
+![user](documentation/userinfo.png)
 
 /signup - page for user to sign up using id, password, and email
 
-![signup](signup.png)
+![signup](documentation/signup.png)
 
 /login - page for userto login using id and password
 
-![login](login.png)
+![login](documentation/login.png)
 
 /main - page for showing all resturants sorted by popularity and search bar for filtering
 
-![main](main.png)
+![main](documentation/main.png)
 
 /resturant - page for showing specific resturant, including information about restuant, pictures, and reviews
 
-![resturant](resturant.png)
+![resturant](documentation/resturant.png)
 
 ## Site map
 
-![sitemap](sitemap.png)
+![sitemap](documentation/sitemap.png)
 
 ## User Stories or Use Cases
 
@@ -94,19 +94,15 @@ An Example Resturant with Embedded Items:
 
 * (5 points) Integrate user authentication
     * I'm going to be using passport for user authentication
-    * And account has been made for testing; I'll email you the password
-    * see <code>cs.nyu.edu/~jversoza/ait-final/register</code> for register page
-    * see <code>cs.nyu.edu/~jversoza/ait-final/login</code> for login page
-* (4 points) Perform client side form validation using a JavaScript library
-    * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
-    * if you put in a number that's greater than 5, an error message will appear in the dom
+* (4 points) Use MySQL as relational database
+    * Yelp uses MySQL as their relational database, so I will mirror 
 
 
 ## [Link to Initial Main Project File](app.js) 
 
-(___TODO__: create a skeleton Express application with a package.json, app.js, views folder, etc. ... and link to your initial app.js_)
 
 ## Annotations / References Used
 
-1. [passport.js authentication docs](http://passportjs.org/docs) - (add link to source code that was based on this)
+1. (http://passportjs.org/docs)
+2. (https://dev.mysql.com/doc/) 
 

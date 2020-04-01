@@ -1,4 +1,4 @@
-# NYC Eats
+# :ramen: NYC Eats :shaved_ice:
 
 ## Overview
 

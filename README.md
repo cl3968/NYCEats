@@ -94,8 +94,11 @@ An Example Resturant with Embedded Items:
 
 * (5 points) Integrate user authentication
     * I'm going to be using passport for user authentication
+    * I'll set up an account for the user on the sign up page with custom username and password
 * (4 points) Use MySQL as relational database
-    * Yelp uses MySQL as their relational database, so I will mirror 
+    * Yelp uses MySQL as their relational database, so I will mirror it
+    * MySQL stores its data in tables and uses the structured query language (SQL) to access the data, unlike MongoDB
+    * MySQL can store more data than MongoDB
 
 
 ## [Link to Initial Main Project File](app.js) 

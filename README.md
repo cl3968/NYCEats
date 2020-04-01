@@ -23,13 +23,13 @@ An Example User:
   
 }
 ```
-An Example Resturant:
+An Example Review:
 
 ```javascript
 {
   username: "foodie123",
-  hash: // a password hash,
-  lists: // an array of references to Review documents
+  verdict: "Great service, great food",
+  rank: 2,
   createdAt: // timestamp
 }
 ```

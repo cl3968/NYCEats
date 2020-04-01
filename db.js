@@ -10,12 +10,20 @@ const User = new mongoose.Schema({
   reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }]
   
 });
+// reviews
+// * each review must have a related user
+// * users can also optionally rank a resturant in their review 
+// * they also have a date when this review was posted
 const Review = new mongoose.Schema({
   username: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
   verdict:{type: String, required: true},
   rank: String,
   createdAt: {type: Date, required: true}
 });
+// resturant
+// * each resturant has a name, cuisine associated with it,
+// * borough, price point, popularity, and pictures
+// * users can post reviews
 const Resturant = new mongoose.Schema({
   name: {type: String, required: true},
   cuisine: {type: String, required: true},

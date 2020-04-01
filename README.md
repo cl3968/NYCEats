@@ -19,7 +19,7 @@ An Example User:
 {
   username: "foodie123",
   hash: // a password hash,
-  lists: // an array of references to Review documents
+  reviews: // an array of references to Review documents
   
 }
 ```
@@ -39,7 +39,7 @@ An Example Resturant with Embedded Items:
 ```javascript
 {
   name: "Top Thai",
-  cuiseine: "Thai",
+  cuisine: "Thai",
   borough: "Manhattan",
   price: "$$",
   popularity: 10,

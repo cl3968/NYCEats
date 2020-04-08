@@ -95,10 +95,8 @@ An Example Resturant with Embedded Items:
 * (5 points) Integrate user authentication
     * I'm going to be using passport for user authentication
     * I'll set up an account for the user on the sign up page with custom username and password
-* (4 points) Use MySQL as relational database
-    * Yelp uses MySQL as their relational database, so I will mirror it
-    * MySQL stores its data in tables and uses the structured query language (SQL) to access the data, unlike MongoDB
-    * MySQL can store more data than MongoDB
+* (3 points) CSS Grid and Flexbox
+    * I'm going to use grid and flexbox as the design for my website 
 
 
 ## [Link to Initial Main Project File](app.js) 
@@ -107,5 +105,5 @@ An Example Resturant with Embedded Items:
 ## Annotations / References Used
 
 1. (http://passportjs.org/docs)
-2. (https://dev.mysql.com/doc/) 
+2. (https://medium.com/youstart-labs/beginners-guide-to-choose-between-css-grid-and-flexbox-783005dd2412)
 

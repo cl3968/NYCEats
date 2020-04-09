@@ -1,0 +1,32 @@
+<form method="GET" action="/">
+  Name: <input type="text" name="name"> 
+  Cuisine: <input type="text" name="cuisine"> 
+  Borough: <input type="text" name="borough"> 
+  Price: <input type="text" name="price">  
+  <input type="submit" value="Filter"> 
+</form>
+
+
+<div class="flex-grid">
+  
+  {{#each resturants}}
+    <div class = "col">
+        Name: {{name}} </br>
+        Cuisine: {{cuisine}} </br>
+        Borough: {{borough}} </br>
+        Price: {{price}} </br>
+        Pictures: {{pictures}} </br>
+        Reviews: <ul> 
+            {{#each reviews}} 
+              <li>{{verdict}}</li>
+            {{/each}}
+            </ul>   
+           
+    </div>
+  {{/each}}
+   
+</div>
+{{error}}
+<script>
+    // run client side javascript to check form fields
+</script>

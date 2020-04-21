@@ -105,5 +105,5 @@ An Example Resturant with Embedded Items:
 ## Annotations / References Used
 
 1. (http://passportjs.org/docs)
-2. (https://medium.com/youstart-labs/beginners-guide-to-choose-between-css-grid-and-flexbox-783005dd2412)
+2. (https://cssreference.io/flexbox/)
 

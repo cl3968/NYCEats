@@ -143,4 +143,22 @@ app.get('/', (req, res) => {
 	
 });
 
-app.listen(3000);
+app.get('/login', function(req, res, next) { 
+	res.render('login', { title: 'Login Page', message:
+	req.flash('loginMessage') }); 
+}); 
+
+app.get('/signup', function(req, res) { 
+  res.render('signup', { title: 'Signup Page', 
+     message:req.flash('signupMessage') }); 
+}); 
+
+app.get('/profile',  function(req, res, next) {
+	res.render('userinfo', { title: 'Profile Page', user : req.user,
+		avatar: gravatar.url(req.user.email ,  {s: '100', r: 'x', d:
+		'retro'}, true) });
+}); 
+
+
+
+app.listen(process.env.PORT || 3000);

@@ -1,12 +1,21 @@
-require('./db');
+require('./db.js');
 
 const mongoose = require('mongoose');
+
 const Resturant = mongoose.model('Resturant');
 const Review = mongoose.model('Review');
+const User = mongoose.model('User');
+
+const LocalStrategy = require('passport-local').Strategy;
+const passport = require('passport');
+const flash = require("express-flash");
+const bcrypt = require('bcrypt');
+require('./passport.js')(passport);
 
 
 const express = require('express');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -19,6 +28,10 @@ const sessionOptions = {
       saveUninitialized: true
 };
 app.use(session(sessionOptions));
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -143,22 +156,48 @@ app.get('/', (req, res) => {
 	
 });
 
+app.get('/resturant', (req, res) =>{
+	res.render('resturant');
+});
+
+app.post('/resturant', (req, res) =>{
+	if (req.body!==undefined){
+		new Review({
+			username: req.body.username,
+			verdict: req.body.verdict,
+			createdAt: Date()
+
+		}).save(function(err, review){
+			res.redirect('/');
+		});
+	}
+	else{
+		res.redirect('/resturant');
+	}
+})
+
 app.get('/login', function(req, res, next) { 
-	res.render('login', { title: 'Login Page', message:
-	req.flash('loginMessage') }); 
+	res.render('login');
 }); 
+
+app.post('/login', 
+  passport.authenticate('local-login', { 
+  	successRedirect: '/',
+  	failureRedirect: '/login',
+  	failureFlash: true
+}));
 
 app.get('/signup', function(req, res) { 
-  res.render('signup', { title: 'Signup Page', 
-     message:req.flash('signupMessage') }); 
+  res.render('signup');
 }); 
 
-app.get('/profile',  function(req, res, next) {
-	res.render('userinfo', { title: 'Profile Page', user : req.user,
-		avatar: gravatar.url(req.user.email ,  {s: '100', r: 'x', d:
-		'retro'}, true) });
-}); 
+app.post('/signup', 
+	passport.authenticate('local-signup',{
+		successRedirect: '/',
+		failureRedirect: '/signup',
+		failureFlash: true
+
+}));
 
 
-
-app.listen(process.env.PORT || 3000);
+app.listen(3000);

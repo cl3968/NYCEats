@@ -1,0 +1,31 @@
+{
+  "name": "cl3968-final-project",
+  "version": "1.0.0",
+  "description": "## Overview",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyu-csci-ua-0480-008-spring-2020/cl3968-final-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyu-csci-ua-0480-008-spring-2020/cl3968-final-project/issues"
+  },
+  "homepage": "https://github.com/nyu-csci-ua-0480-008-spring-2020/cl3968-final-project#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "bcrypt-nodejs": "0.0.3",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.2.0",
+    "cookie-parser": "^1.4.5",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.1",
+    "gravatar": "^1.8.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  }
+}

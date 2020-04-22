@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const bcrypt = require('bcrypt'); 
 // users
 // * our site requires authentication
 // * so users have a username and password
@@ -7,9 +7,21 @@ const mongoose = require('mongoose');
 const User = new mongoose.Schema({
   // username provided by authentication plugin
   // password hash provided by authentication plugin
-  reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }]
+  username: {type: String, required: true},
+  password: {type: String, required: true},
+  // reviews: [Review]
   
 });
+
+// Encrypt Password 
+User.methods.generateHash = function(password) { 
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null); 
+}; 
+ 
+// Verify if password is valid 
+User.methods.validPassword = function(password) { 
+    return bcrypt.compareSync(password, this.local.password); 
+}; 
 // reviews
 // * each review must have a related user
 // * they also have a date when this review was posted

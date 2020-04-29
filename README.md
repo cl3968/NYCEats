@@ -2,15 +2,15 @@
 
 ## Overview
 
-Basically, this is a simpler Yelp focused on the resturants in NYC. Users can rank their favorite resturants and search results can be filtered by cuisine, borough, and price point. The search results will be displayed by how many people ranked that resturant as their top 5. Users can register and login to post reviews with pictures and rank resturants. 
+Basically, this is a simpler Yelp focused on Asian resturants in NYC. Anyone can search restaurants and results can be filtered by name, cuisine, borough, and price point. Anyone can also choose a random restaurant on the site using a random generator. Anyone can register an account and become a user. Users can login to post reviews check how many reviews for each type of cuisine they have reviewed in chronological order. 
 
 ## Data Model
 
 The application will store Users, Resturants and Reviews
 
 * users can have multiple reviews (via references)
-* reviews have content, timestamp, and images
-* each resturant will have cuisine, borough, price point, popularity, and reviews (by embedding)
+* reviews have content, timestamp, and the username of the user who posted it
+* each resturant will have name, cuisine, borough, price point, picture, and reviews (by embedding)
 
 
 An Example User:
@@ -29,7 +29,6 @@ An Example Review:
 {
   username: "foodie123",
   verdict: "Great service, great food",
-  rank: 2,
   createdAt: // timestamp
 }
 ```
@@ -42,11 +41,10 @@ An Example Resturant with Embedded Items:
   cuisine: "Thai",
   borough: "Manhattan",
   price: "$$",
-  popularity: 10,
-  pictures: //images
+  picture: //image url
   reviews: [
-    { name: "foodie123", verdict: "Great service, great food", rank: 2},
-    { name: "iloveramen", verdict: "Amazing lunch special: only 10 dollars!!!", rank: 5},
+    { name: "foodie123", verdict: "Great service, great food", createdAt: timestamp},
+    { name: "iloveramen", verdict: "Amazing lunch special: only 10 dollars!!!", createdAt: timestamp},
   ]
   
 }
@@ -85,9 +83,9 @@ An Example Resturant with Embedded Items:
 
 1. as non-registered user, I can register a new account with the site
 2. as a user, I can log in to the site
-3. as a user, I can write a review and upload pictures with my review
-4. as a user, I can view all my reviews 
-5. as a non-registered user and user, I can view and search for resturants
+3. as a user, I can write a review 
+4. as a user, I can view all my reviews in chronological order
+5. as a non-registered user and user, I can view and search for resturants and use the random restaurant generator
 
 
 ## Research Topics
@@ -106,4 +104,9 @@ An Example Resturant with Embedded Items:
 
 1. (http://passportjs.org/docs)
 2. (https://cssreference.io/flexbox/)
+3. (https://www.npmjs.com/package/passport-local-mongoose)
+4. (https://www.sitepoint.com/local-authentication-using-passport-node-js/)
+5. (https://blog.cloudboost.io/node-js-authentication-with-passport-4a125f264cd4)
+6. (https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+7. (https://yoksel.github.io/flex-cheatsheet/)
 

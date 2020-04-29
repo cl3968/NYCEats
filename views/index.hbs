@@ -1,9 +1,37 @@
 <form method="GET" action="/">
   Name: <input type="text" name="name"> 
-  Cuisine: <input type="text" name="cuisine"> 
-  Borough: <input type="text" name="borough"> 
-  Price: <input type="text" name="price">  
-  <input type="submit" value="Filter"> 
+  Cuisine: 
+  <select id="price" name="cuisine">
+    <option value="">Select Cuisine</option>
+    <option value="Thai">Thai</option>
+    <option value="Malaysian">Malaysian</option>
+    <option value="Chinese">Chinese</option>
+    <option value="Korean">Korean</option>
+    <option value="Japanese">Japanese</option>
+    <option value="Vietnamese">Vietnamese</option>
+    <option value="Indian">Indian</option>
+    <option value="Indonesian">Indonesian</option>
+  </select>
+  Borough: 
+  <select id="price" name="borough">
+    <option value="">Select Borough</option>
+    <option value="Brooklyn">Brooklyn</option>
+    <option value="Manhattan">Manhattan</option>
+    <option value="Queens">Queens</option>
+    <option value="Bronx">Bronx</option>
+    <option value="Staten Island">Staten Island</option>
+  </select>
+  Price: 
+  <select id="price" name="price">
+    <option value="">Select Price</option>
+    <option value="$">$</option>
+    <option value="$$">$$</option>
+    <option value="$$$">$$$</option>
+    <option value="$$$$">$$$$</option>
+  </select>
+ 
+  <button class="btn" 
+               type="submit">Filter!</button> 
 </form>
 
 
@@ -14,15 +42,18 @@
         Name: {{name}} </br>
         Cuisine: {{cuisine}} </br>
         Borough: {{borough}} </br>
-        Price: {{price}} </br>
-        Pictures: {{pictures}} </br>
-        Reviews: <ul> 
-            {{#each reviews}} 
-              <li>{{verdict}}</li> 
-            {{/each}}
-            </ul>   
-           
+        Price: {{price}} 
+        <div class = "pic"> <img src = "{{picture}}" height= "200px" width= "200px">   </div>
+       
+        <ul> 
+        Reviews: 
+        {{#each reviews}} 
+          <li>{{verdict}}</li> 
+        {{/each}}
+        </ul>
+
     </div>
+
   {{/each}}
    
 </div>

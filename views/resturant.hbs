@@ -1,6 +1,14 @@
-<form method="POST" action="/resturant">
-  Name: <input type="text" name="name"> <br>
-  Username: <input type="text" name="username"> <br>
-  Verdict: <input type="text" name="verdict">  <br>
-  <input type="submit" value="Submit"> 
+
+
+<form class="form-signin" method="POST" action="/resturant">
+<h2> Add a Review! </h2>
+  Restaurant Name: <input type="text" name="name"> <br> <br>
+  Username: <input type="text" name="username"> <br> <br>
+  Verdict (280 character limit): <input type="text" name="verdict" size="50" maxlength="280">  <br> <br>
+  <button class="btn" 
+               type="submit">Submit!</button> 
 </form>
+{{error}}
+<script>
+    // run client side javascript to check form fields
+</script>

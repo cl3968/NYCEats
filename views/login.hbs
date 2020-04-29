@@ -1,28 +1,24 @@
-      <!DOCTYPE html> 
-      <html> 
-      <head> 
-          
-      </head> 
-      <body> 
-   
+      
+      <div class="row justify-content-md-center" style="margin-top: 30px">
+
         <div class="container"> 
 
-            <form class="form-signin" action="/login" method="post"> 
-            <h2 class="form-signin-heading">Welcome sign in</h2> 
+            <form align="center" class="form-signin" action="/login" method="post"> 
+            <h2 class="form-signin-heading">Welcome to login page!</h2> 
             <label for="username" class="sr-only">Username</label> 
             <input type="text" id="username" name="username" class="form-
               control" placeholder="Username" required=""> 
             <label for="password" class="sr-only">Password</label> 
             <input type="password" id="password" name="password"
              class="form-control" placeholder="Password" required=""> 
-            <button class="btn btn-lg btn-primary btn-block" 
-               type="submit">Sign in</button> 
+            <button class="btn" 
+               type="submit">Sign in!</button> 
             <br> 
-            <p>Don't have an account? <a href="/signup">Signup</a> 
-               ,it's free.</p> 
+            <p>Don't have an account? <a href="/signup">Signup</a>,it's free.</p> 
           </form> 
+         <span style="color: red;"> {{error}}</span>
+
         </div> 
  
-       
-      </body> 
-      </html> 
+       </div>
+      

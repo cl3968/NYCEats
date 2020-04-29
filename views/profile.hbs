@@ -1,0 +1,65 @@
+      
+          <div class="container"> 
+            <div class="datails"> 
+              <div class="card text-xs-center"> 
+                  <br> 
+               <img src="https://i.pinimg.com/originals/7a/f1/c6/7af1c68ab38fd2ac76a4f1f76f13bca5.png" height="200px" width="200px" class="center">
+                  <div class="card-block"> 
+                    <h4 class="card-title">User Details</h4> 
+                    <p class="card-text"> 
+                        <strong>Name</strong>: {{username}} <br> 
+                    </p> 
+
+                    <form method="GET" action="/profile">
+                      Cuisine: 
+                      <select id="price" name="cuisine">
+                        <option value="">Select Cuisine</option>
+                        <option value="Thai">Thai</option>
+                        <option value="Malaysian">Malaysian</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Korean">Korean</option>
+                        <option value="Japanese">Japanese</option>
+                        <option value="Vietnamese">Vietnamese</option>
+                        <option value="Indian">Indian</option>
+                        <option value="Indonesian">Indonesian</option>
+                      </select>
+                      <button class="btn" 
+               type="submit">Find!</button> 
+                    </form>
+                      {{num}}
+                      <br>
+                     <strong>Resturants Reviewed:</strong>
+                    <div class="flex-grid">
+    
+                      {{#each resturants}}
+                        <div class = "col">
+                            Name: {{name}} </br>
+                            Cuisine: {{cuisine}} </br>
+                            Borough: {{borough}} </br>
+                            Price: {{price}} 
+                            <div class = "pic"> <img src = "{{picture}}" height= "200px" width= "200px">   </div>
+                           
+                            <ul> 
+                            Reviews: 
+                            {{#each reviews}} 
+                              <li>{{verdict}}</li> 
+                            {{/each}}
+                            </ul>
+
+                        </div>
+
+                      {{/each}}
+                      {{error}}
+
+        <a align = "center" class="nav-link" href="\logout">Logout</a>
+      
+<script>
+    // run client side javascript to check form fields
+</script>
+                       
+                    
+              </div> 
+            </div> 
+         </div> 
+
+

@@ -1,5 +1,30 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt'); 
+const passportLocalMongoose = require('passport-local-mongoose');
+const uniqueValidator = require("mongoose-unique-validator");
+
+// reviews
+// * each review must have a related user
+// * they also have a date when this review was posted
+const Review = new mongoose.Schema({
+  username: {type: String, required: true},
+  verdict: {type: String, required: true},
+  createdAt: {type: Date, default: Date.now, required: true}
+});
+
+// resturant
+// * each resturant has a name, cuisine associated with it,
+// * borough, price point, and pictures
+// * users can post reviews
+const Resturant = new mongoose.Schema({
+  name: {type: String, required: true},
+  namelower: {type: String, required: true},
+  cuisine: {type: String, required: true},
+  borough: {type: String, required: true},
+  price: {type: String, required: true},
+  picture: {type: String, required: false},
+  reviews: [Review]
+});
+
 // users
 // * our site requires authentication
 // * so users have a username and password
@@ -7,45 +32,20 @@ const bcrypt = require('bcrypt');
 const User = new mongoose.Schema({
   // username provided by authentication plugin
   // password hash provided by authentication plugin
-  username: {type: String, required: true},
+  username: {type: String, required: true, unique: true},
   password: {type: String, required: true},
-  // reviews: [Review]
+  resturants: [Resturant]
   
 });
 
-// Encrypt Password 
-User.methods.generateHash = function(password) { 
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null); 
-}; 
- 
-// Verify if password is valid 
-User.methods.validPassword = function(password) { 
-    return bcrypt.compareSync(password, this.local.password); 
-}; 
-// reviews
-// * each review must have a related user
-// * they also have a date when this review was posted
-const Review = new mongoose.Schema({
-  username: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
-  verdict:{type: String, required: true},
-  createdAt: {type: Date, default: Date.now, required: true}
-});
-// resturant
-// * each resturant has a name, cuisine associated with it,
-// * borough, price point, and pictures
-// * users can post reviews
-const Resturant = new mongoose.Schema({
-  name: {type: String, required: true},
-  cuisine: {type: String, required: true},
-  borough: {type: String, required: true},
-  price: {type: String, required: true},
-  // pictures: {type: Image, required: true},
-  reviews: [Review]
-});
+User.plugin(uniqueValidator);
 
-mongoose.model('User', User);
+User.plugin(passportLocalMongoose);
+
+mongoose.model('User',User);
 mongoose.model('Review', Review);
 mongoose.model('Resturant', Resturant);
+
 
 // is the environment variable, NODE_ENV, set to PRODUCTION? 
 let dbconf;
@@ -63,7 +63,12 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
  dbconf = conf.dbconf;
 } else {
  // if we're not in PRODUCTION mode, then use
- dbconf = 'mongodb://localhost/cl3968';
+ dbconf = 'mongodb://localhost/final';
 }
 
 mongoose.connect(dbconf, {useNewUrlParser: true, useUnifiedTopology: true});
+
+
+// Users.register({username:'paul', active: false}, 'paul');
+// Users.register({username:'jay', active: false}, 'jay');
+// Users.register({username:'roy', active: false}, 'roy');

@@ -73,7 +73,11 @@ An Example Resturant with Embedded Items:
 
 /resturant - page for showing specific resturant, including information about restuant, pictures, and reviews
 
-![resturant](documentation/resturant.png)
+![resturant](documentation/restaurant.png)
+
+/random - page for showing a random resturant, including information about restuant, pictures, and reviews
+
+![random](documentation/random.png)
 
 ## Site map
 

@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/nyu-csci-ua-0480-008-spring-2020/cl3968-final-project#readme",
   "dependencies": {
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "connect-ensure-login": "^0.1.1",
